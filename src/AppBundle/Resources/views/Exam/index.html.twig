@@ -1,0 +1,12 @@
+<!doctype HTML>
+<html>
+    <head></head>
+    <body>
+        <h1>Exam</h1>
+        <ul>
+            {% for exam in exams %}
+                <li>{{ exam.name }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
