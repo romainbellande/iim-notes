@@ -9,7 +9,7 @@
   <ul class="center-block list-group">
     {% for student in students %}
     <li class="list-group-item">{{ student.firstName }}
-      - {{ student.lastName }}
+       {{ student.lastName }}
       <a class="badge" href="{{ path('student_delete', {id: student.id}) }}"> Delete
       </a>
     </li>

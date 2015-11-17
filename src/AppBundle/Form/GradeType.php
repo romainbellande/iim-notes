@@ -16,8 +16,8 @@ class GradeType extends AbstractType
     {
         $builder
             ->add('value', 'text', array('label' => 'Value', 'attr' => array('class' => 'form-control')))
-            ->add('student', 'entity', ['class' => 'AppBundle:Student', 'property' => 'firstName'],array('label' => 'Student', 'attr' => array('class' => 'form-control')))
-            ->add('exam', 'entity', ['class' => 'AppBundle:Exam', 'property' => 'name'], array('label' => 'Exam', 'attr' => array('class' => 'form-control')))
+            ->add('student', 'entity', ['class' => 'AppBundle:Student'],array('label' => 'Student'))
+            ->add('exam', 'entity', ['class' => 'AppBundle:Exam', 'choice_label' => 'name'], array('label' => 'Exam', 'attr' => array('class' => 'form-control')))
         ;
     }
 

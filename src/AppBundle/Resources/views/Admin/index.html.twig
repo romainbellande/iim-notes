@@ -9,7 +9,7 @@
   <ul class="center-block list-group">
     {% for admin in admins %}
     <li class="list-group-item">{{ admin.firstName }}
-      - {{ admin.lastName }}
+       {{ admin.lastName }}
       <a class="badge" href="{{ path('admin_delete', {id: admin.id}) }}"> Delete
       </a>
     </li>

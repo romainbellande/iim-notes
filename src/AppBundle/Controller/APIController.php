@@ -15,11 +15,7 @@ class APIController extends FOSRestController
   public function getStudentsAction()
     {
         $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->findAll(); // get data, in this case list of users.
-        $json = $this->get('jms_serializer')->serialize($students,'json');
-        $view = $this->view($json)
-        ->setFormat('json')
-        ->setStatusCode(200);
-
+        $view = $this->view($students);
         return $this->handleView($view);
 
     }
@@ -31,13 +27,9 @@ class APIController extends FOSRestController
      */
     public function getGradesAction()
       {
-          $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->findAll(); // get data, in this case list of users.
-          $json = $this->get('jms_serializer')->serialize($grades,'json');
-          $view = $this->view($json)
-          ->setFormat('json')
-          ->setStatusCode(200);
-
-          return $this->handleView($view);
+        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->findAll(); // get data, in this case list of users.
+        $view = $this->view($grades);
+        return $this->handleView($view);
 
       }
 
@@ -46,13 +38,9 @@ class APIController extends FOSRestController
        */
       public function getExamsAction()
         {
-            $exams = $this->getDoctrine()->getManager()->getRepository('AppBundle:Exam')->findAll(); // get data, in this case list of users.
-            $json = $this->get('jms_serializer')->serialize($exams,'json');
-            $view = $this->view($json)
-            ->setFormat('json')
-            ->setStatusCode(200);
-
-            return $this->handleView($view);
+          $exams = $this->getDoctrine()->getManager()->getRepository('AppBundle:Exam')->findAll(); // get data, in this case list of users.
+          $view = $this->view($exams);
+          return $this->handleView($view);
 
         }
 
@@ -61,13 +49,9 @@ class APIController extends FOSRestController
          */
         public function getAdminsAction()
           {
-              $admins = $this->getDoctrine()->getManager()->getRepository('AppBundle:Admin')->findAll(); // get data, in this case list of users.
-              $json = $this->get('jms_serializer')->serialize($admins,'json');
-              $view = $this->view($json)
-              ->setFormat('json')
-              ->setStatusCode(200);
-
-              return $this->handleView($view);
+            $admins = $this->getDoctrine()->getManager()->getRepository('AppBundle:Admin')->findAll(); // get data, in this case list of users.
+            $view = $this->view($admins);
+            return $this->handleView($view);
 
           }
 }

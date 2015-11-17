@@ -8,7 +8,7 @@
   <a class="btn btn-primary center-block" href="{{ path('grade_add') }}">Add</a>
   <ul class="center-block list-group">
     {% for grade in grades %}
-    <li class="list-group-item">{{ grade.value }}
+    <li class="list-group-item">{{grade.student.firstName}} {{grade.student.lastName}} - {{ grade.value }}/20
       <a class="badge" href="{{ path('grade_delete', {id: grade.id}) }}"> Delete
       </a>
     </li>

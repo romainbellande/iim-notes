@@ -144,7 +144,7 @@ class Student
      *
      * @return Student
      */
-    
+
 
     /**
      * Get grades
@@ -178,5 +178,9 @@ class Student
     public function removeGrade(\AppBundle\Entity\Grade $grade)
     {
         $this->grades->removeElement($grade);
+    }
+
+    public function __toString(){
+      return $this->firstName.' '.$this->lastName;
     }
 }

@@ -6,6 +6,9 @@
 <div class="width-300 center-block">
   <h1 class="text-centered">Add a grade</h1>
   {{ form_start(form) }}
+
+    {{ form_widget(form.student, { 'attr' : { 'class' : 'form-control' } }) }}
+    {{ form_widget(form.exam, { 'attr' : { 'class' : 'form-control margin-top-5' } }) }}
     {{ form_rest(form) }}
     <input type="submit" class="btn btn-primary btn-block margin-top-5" value="Save"/>
 
