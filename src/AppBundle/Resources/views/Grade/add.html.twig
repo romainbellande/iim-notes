@@ -1,16 +1,16 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Add a student{% endblock %}
+{% block title %}Add a grade{% endblock %}
 
 {% block body %}
 <div class="width-300 center-block">
-  <h1 class="text-centered">Add a student</h1>
+  <h1 class="text-centered">Add a grade</h1>
   {{ form_start(form) }}
     {{ form_rest(form) }}
     <input type="submit" class="btn btn-primary btn-block margin-top-5" value="Save"/>
 
     {{ form_end(form) }}
-    <a class="btn btn-primary btn-block margin-top-5" href="{{ path('student_list') }}">Student list</a>
+    <a class="btn btn-primary btn-block margin-top-5" href="{{ path('grade_list') }}">Grade list</a>
 
 </div>
 {% endblock %}

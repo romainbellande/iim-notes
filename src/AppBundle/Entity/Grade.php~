@@ -36,7 +36,7 @@ class Grade
     *@var Exam
     * Ici nous avons "l'autre côté" - on rajoute bien "inversedBy"
     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Exam", inversedBy="grades")
-    */
+    **/
     private $exam;
 
     /**

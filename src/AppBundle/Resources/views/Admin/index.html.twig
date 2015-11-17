@@ -1,12 +1,21 @@
-<!doctype HTML>
-<html>
-    <head></head>
-    <body>
-        <h1>Admin</h1>
-        <ul>
-            {% for admin in admins %}
-                <li>{{ admin.firstName }} - {{ admin.lastName }}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends '::base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+<div class="width-300 center-block">
+  <h1 class="text-centered">Admins list</h1>
+  <a class="btn btn-primary center-block" href="{{ path('admin_add') }}">Add</a>
+  <ul class="center-block list-group">
+    {% for admin in admins %}
+    <li class="list-group-item">{{ admin.firstName }}
+      - {{ admin.lastName }}
+      <a class="badge" href="{{ path('admin_delete', {id: admin.id}) }}"> Delete
+      </a>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
+</div>
+{% endblock %}

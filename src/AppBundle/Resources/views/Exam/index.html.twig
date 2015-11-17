@@ -1,12 +1,20 @@
-<!doctype HTML>
-<html>
-    <head></head>
-    <body>
-        <h1>Exam</h1>
-        <ul>
-            {% for exam in exams %}
-                <li>{{ exam.name }}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends '::base.html.twig' %}
+
+{% block title %}Exam{% endblock %}
+
+{% block body %}
+<div class="width-300 center-block">
+  <h1 class="text-centered">Exams list</h1>
+  <a class="btn btn-primary center-block" href="{{ path('exam_add') }}">Add</a>
+  <ul class="center-block list-group">
+    {% for exam in exams %}
+    <li class="list-group-item">{{ exam.name }}
+      <a class="badge" href="{{ path('exam_delete', {id: exam.id}) }}"> Delete
+      </a>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
+</div>
+{% endblock %}

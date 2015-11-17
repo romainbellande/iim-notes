@@ -1,14 +1,21 @@
-<!doctype HTML>
-<html>
-    <head></head>
-    <body>
-        <h1>Students list</h1>
+{% extends '::base.html.twig' %}
 
-        <ul>
-            {% for student in students %}
-                <li>{{ student.firstName }} - {{ student.lastName }}</li>
-                - <a href="{{ path('student_delete', {id: student.id}) }}">Delete</a>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% block title %}Student{% endblock %}
+
+{% block body %}
+<div class="width-300 center-block">
+  <h1 class="text-centered">Students list</h1>
+  <a class="btn btn-primary center-block" href="{{ path('student_add') }}">Add</a>
+  <ul class="center-block list-group">
+    {% for student in students %}
+    <li class="list-group-item">{{ student.firstName }}
+      - {{ student.lastName }}
+      <a class="badge" href="{{ path('student_delete', {id: student.id}) }}"> Delete
+      </a>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class StudentType extends AbstractType
+class GradeType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,9 @@ class StudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'text', array('label' => 'Email', 'attr' => array('class' => 'form-control')))
-            ->add('firstName', 'text', array('label' => 'First name', 'attr' => array('class' => 'form-control')))
-            ->add('lastName', 'text', array('label' => 'Last name', 'attr' => array('class' => 'form-control')))
+            ->add('value', 'text', array('label' => 'Value', 'attr' => array('class' => 'form-control')))
+            ->add('student', 'entity', ['class' => 'AppBundle:Student', 'property' => 'firstName'],array('label' => 'Student', 'attr' => array('class' => 'form-control')))
+            ->add('exam', 'entity', ['class' => 'AppBundle:Exam', 'property' => 'name'], array('label' => 'Exam', 'attr' => array('class' => 'form-control')))
         ;
     }
 
@@ -27,7 +27,7 @@ class StudentType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Student'
+            'data_class' => 'AppBundle\Entity\Grade'
         ));
     }
 
@@ -36,6 +36,6 @@ class StudentType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_student';
+        return 'appbundle_grade';
     }
 }

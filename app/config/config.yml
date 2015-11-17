@@ -40,7 +40,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [AppBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -78,3 +78,14 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+easy_admin:
+    entities:
+        - AppBundle\Entity\Admin
+        - AppBundle\Entity\Student
+        - AppBundle\Entity\Exam
+        - AppBundle\Entity\Grade
+
+fos_rest:
+    routing_loader:
+        default_format: json

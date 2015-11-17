@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class StudentController
  */
+
 class StudentController extends Controller
 {
     /**
@@ -17,6 +18,7 @@ class StudentController extends Controller
      */
     public function indexAction()
     {
+
         $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->findAll();
 
         return $this->render('AppBundle:Student:index.html.twig', [
@@ -51,7 +53,7 @@ class StudentController extends Controller
      * @Route("/student/delete/{id}", name="student_delete")
      */
     public function deleteAction($id){
-      
+
       $db = $this->getDoctrine()->getManager();
       $student = $db->getRepository('AppBundle:Student')->find($id);
       $db->remove($student);
@@ -60,4 +62,6 @@ class StudentController extends Controller
       return $this->redirectToRoute('student_list');
 
     }
+
+
 }
