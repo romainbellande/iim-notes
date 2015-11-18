@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>{% block title %}Welcome!{% endblock %}</title>
+  <title>{% block title %}{% endblock %}</title>
   {% block stylesheets %}{% endblock %}
   {% stylesheets
   'css/bootstrap.min.css'
@@ -13,13 +13,59 @@
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body class="container">
-  
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">IIM - Notes</a>
+    </div>
+    <div>
+      <ul id="main-menu" class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Student
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/admin/student">List</a></li>
+            <li><a href="/admin/student/add">Add</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Exam
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/admin/exam">List</a></li>
+            <li><a href="/admin/exam/add">Add</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Grade
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/admin/grade">List</a></li>
+            <li><a href="/admin/grade/add">Add</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/admin/admin">List</a></li>
+            <li><a href="/admin/admin/add">Add</a></li>
+          </ul>
+        </li>
+        <li><a href="/easy_admin">Easy admin</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
   {% block body %}{% endblock %}
   {% block javascripts %}
   {% endblock %}
   {% javascripts
   'js/jquery.min.js'
   'js/bootstrap.min.js'
+  'js/main.js'
   output='js/compiled/app.js' %}
   <script src="{{ asset_url }}"></script>
   {% endjavascripts %}

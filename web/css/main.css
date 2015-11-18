@@ -1,9 +1,18 @@
-.text-centered{
-  text-align: center;
-}
+
 .width-300{
   width:300px;
 }
 .margin-top-5{
   margin-top:5px;
+}
+.vcenter{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+body{
+  background-image: url('/images/bg2.png');
+  background-size:cover;
+  background-repeat: no-repeat;
 }

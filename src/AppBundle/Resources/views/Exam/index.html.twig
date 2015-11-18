@@ -4,11 +4,11 @@
 
 {% block body %}
 <div class="width-300 center-block">
-  <h1 class="text-centered">Exams list</h1>
+  <h1 class="text-center text-primary">Exams list</h1>
   <a class="btn btn-primary center-block" href="{{ path('exam_add') }}">Add</a>
   <ul class="center-block list-group">
     {% for exam in exams %}
-    <li class="list-group-item">{{ exam.name }}
+    <li class="list-group-item">{{ exam.type }} - {{ exam.name }}
       <a class="badge" href="{{ path('exam_delete', {id: exam.id}) }}"> Delete
       </a>
     </li>

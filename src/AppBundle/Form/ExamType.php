@@ -15,9 +15,9 @@ class ExamType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array('label' => 'Name', 'attr' => array('class' => 'form-control')))
-            ->add('type', 'text', array('label' => 'Type', 'attr' => array('class' => 'form-control')))
-            
+            ->add('name', 'text', array('label' => 'Name', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+            ->add('type', 'text', array('label' => 'Type', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+
         ;
     }
 

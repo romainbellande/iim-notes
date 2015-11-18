@@ -1,6 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type:     annotation
@@ -10,3 +11,36 @@ api:
     type: rest
     resource: AppBundle\Controller\APIController
     prefix: /api
+
+student:
+    type: annotation
+    resource: AppBundle\Controller\StudentController
+    prefix: /admin
+
+exam:
+    type: annotation
+    resource: AppBundle\Controller\ExamController
+    prefix: /admin
+
+admin:
+    type: annotation
+    resource: AppBundle\Controller\AdminController
+    prefix: /admin
+
+grade:
+    type: annotation
+    resource: AppBundle\Controller\GradeController
+    prefix: /admin
+
+default:
+    type: annotation
+    resource: AppBundle\Controller\DefaultController
+    prefix: /admin
+
+# redirecting the root
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /admin
+        permanent: true

@@ -15,9 +15,9 @@ class StudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'text', array('label' => 'Email', 'attr' => array('class' => 'form-control')))
-            ->add('firstName', 'text', array('label' => 'First name', 'attr' => array('class' => 'form-control')))
-            ->add('lastName', 'text', array('label' => 'Last name', 'attr' => array('class' => 'form-control')))
+            ->add('email', 'text', array('label' => 'Email', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+            ->add('firstName', 'text', array('label' => 'First name', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+            ->add('lastName', 'text', array('label' => 'Last name', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
         ;
     }
 
