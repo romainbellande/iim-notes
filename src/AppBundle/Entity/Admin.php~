@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\AdminRepository")
  */
-class Admin
+class Admin extends BaseUser
 {
     /**
      * @var integer
@@ -19,28 +20,23 @@ class Admin
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=60)
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=60)
      */
-    private $lastName;
+    protected $lastName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=60)
-     */
-    private $password;
+
 
 
     /**
@@ -67,6 +63,7 @@ class Admin
         return $this;
     }
 
+
     /**
      * Get firstName
      *
@@ -75,6 +72,11 @@ class Admin
     public function getFirstName()
     {
         return $this->firstName;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     /**
