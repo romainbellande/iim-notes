@@ -59,4 +59,38 @@ class ExamController extends Controller
       return $this->redirectToRoute('exam_list');
 
     }
+
+
+
+    /**
+     * @Route("/exam/update/{id}", name="exam_update")
+     */
+    public function updateAction($id)
+    {
+        $request = $this->get('request');
+
+        if (is_null($id)) {
+            $postData = $request->get('AppBundle:Exam');
+            $id = $postData['id'];
+        }
+
+        $db = $this->getDoctrine()->getEntityManager();
+        $exam = $db->getRepository('AppBundle:Exam')->find($id);
+        $form = $this->createForm(new ExamType(), $exam);
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // perform some action, such as save the object to the database
+                $db->flush();
+
+                return $this->redirect($this->generateUrl('exam_list'));
+            }
+        }
+
+        return $this->render('AppBundle:Exam:update.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
 }

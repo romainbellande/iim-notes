@@ -15,7 +15,7 @@ class GradeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('value', 'text', array('label' => 'Value', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+            ->add('value', 'text', array('label' => 'Value', 'attr' => array('class' => 'form-control')))
             ->add('student', 'entity', ['class' => 'AppBundle:Student'],array('label' => 'Student'))
             ->add('exam', 'entity', ['class' => 'AppBundle:Exam', 'choice_label' => 'name'], array('label' => 'Exam', 'attr' => array('class' => 'form-control')))
         ;

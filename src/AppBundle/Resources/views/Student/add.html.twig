@@ -3,14 +3,10 @@
 {% block title %}Add a student{% endblock %}
 
 {% block body %}
-<div class="width-300 center-block">
-  <h1 class="text-center text-primary">Add a student</h1>
+  <h1>Add a student</h1>
+
   {{ form_start(form) }}
-    {{ form_rest(form) }}
-    <input type="submit" class="btn btn-primary btn-block margin-top-5" value="Save"/>
-
-    {{ form_end(form) }}
-    <a class="btn btn-primary btn-block margin-top-5" href="{{ path('student_list') }}">Student list</a>
-
-</div>
+  {{ form_rest(form) }}
+  <input class="btn btn-primary btn-block" type="submit" value="Add">
+  {{ form_end(form) }}
 {% endblock %}
