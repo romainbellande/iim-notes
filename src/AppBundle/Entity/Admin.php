@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Admin
  *
- * @ORM\Table()
+ * @ORM\Table("fos_user")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\AdminRepository")
  */
 class Admin extends BaseUser
@@ -23,22 +23,9 @@ class Admin extends BaseUser
     protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="firstName", type="string", length=60)
+     * @ORM\Column(type="string", unique=true)
      */
-    protected $firstName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lastName", type="string", length=60)
-     */
-    protected $lastName;
-
-
-
-
+    private $apiToken;
     /**
      * Get id
      *
@@ -48,82 +35,31 @@ class Admin extends BaseUser
     {
         return $this->id;
     }
-
     /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return Admin
+     * Returns the salt that was originally used to encode the password.
      */
-    public function setFirstName($firstName)
+    public function getSalt()
     {
-        $this->firstName = $firstName;
-
-        return $this;
+        // See "Do you need to use a Salt?" at http://symfony.com/doc/current/cookbook/security/entity_provider.html
+        // we're using bcrypt in security.yml to encode the password, so
+        // the salt value is built-in and you don't have to generate one
+        return;
     }
-
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
+    
+    public function eraseCredentials()
     {
-        return $this->firstName;
-    }
-
-    public function getUsername()
-    {
-        return $this->username;
+        // if you had a plainPassword property, you'd nullify it here
+        $this->plainPassword = null;
     }
 
     /**
-     * Set lastName
-     *
-     * @param string $lastName
-     *
-     * @return Admin
+     * @param string $apiToken
      */
-    public function setLastName($lastName)
+    public function setApiToken($apiToken)
     {
-        $this->lastName = $lastName;
-
-        return $this;
+        $this->apiToken = $apiToken;
     }
 
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
 
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Admin
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
 
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
 }

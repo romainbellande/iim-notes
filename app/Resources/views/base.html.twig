@@ -13,6 +13,7 @@
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body class="container">
+  {% block nav %}
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -54,11 +55,13 @@
           </ul>
         </li>
         <li><a href="/easy_admin">Easy admin</a></li>
+        <li><a href="/admin/logout">Logout</a></li>
 
       </ul>
     </div>
   </div>
 </nav>
+{% endblock %}
   {% block body %}{% endblock %}
   {% block javascripts %}
   {% endblock %}

@@ -8,18 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AdminType extends AbstractType
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('firstName')
-            ->add('lastName')
-        ;
-    }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -29,6 +18,20 @@ class AdminType extends AbstractType
             'data_class' => 'AppBundle\Entity\Admin'
         ));
     }
+
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+      $builder
+          ->add('username', 'text', array('label' => 'Username', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+          ->add('email', 'text', array('label' => 'Email', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+          ->add('plainPassword', 'password', array('label' => 'Password', 'label_attr' => array('class' => 'text-primary'), 'attr' => array('class' => 'form-control')))
+      ;
+    }
+    public function getParent()
+        {
+            return 'fos_user_registration';
+        }
+
 
     /**
      * @return string

@@ -7,3 +7,10 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.form_login_authenticator:
+        class: AppBundle\Controller\AdminController
+        arguments: ["@service_container"]
+
+    app.api_token_authenticator:
+        class: AppBundle\Controller\ApiTokenAuthenticator
+        arguments: ["@doctrine.orm.entity_manager"]

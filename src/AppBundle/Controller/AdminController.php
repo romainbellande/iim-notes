@@ -27,12 +27,14 @@ class AdminController extends Controller
      */
     public function addAction(Request $request){
       $admin = new Admin();
+
       $form = $this->createForm(new AdminType(), $admin);
 
       if($request->isMethod('POST')
       && $form->handleRequest($request)
       && $form->isValid()){
-
+        $this->get('fos_user.user_manager')->updateUser($admin);
+        $admin->addRole('ROLE_ADMIN');
         $db = $this->getDoctrine()->getManager();
         $db->persist($admin);
         $db->flush();
