@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Admin Update</h1>
+
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <input class="btn btn-primary btn-block" type="submit" value="Update">
+    {{ form_end(form) }}
+
+{% endblock %}

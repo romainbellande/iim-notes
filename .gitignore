@@ -1,0 +1,6 @@
+/vendor
+/app/cache
+/web/bundles
+/app/logs
+parameters.yml
+/bin
