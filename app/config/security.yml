@@ -10,9 +10,15 @@ security:
 
     firewalls:
 
-        main:
-            pattern: ^/
-            anonymous: ~
+
+
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        admin:
+            pattern:            ^/admin(.*)
+            anonymous:    true
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
@@ -22,22 +28,16 @@ security:
             logout:
                 path:           /admin/logout
                 target:         /admin/login
-            anonymous:    true
+        api:
+            pattern:  ^/api
             knpu_guard:
-                    authenticators:
-                        - app.api_token_authenticator
-                    # by default, use the start() function from FormLoginAuthenticator
-                    entry_point: app.form_login_authenticator
-        dev:
-            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
-            security: false
+                authenticators:
+                  - app.api_token_authenticator
+        main:
+            pattern: ^/
+            anonymous: ~
 
-        admin:
-            pattern:            ^/admin(.*)
             anonymous:    true
-
-
-
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
