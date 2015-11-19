@@ -9,6 +9,8 @@
   'css/main.css'
   filter='cssrewrite' output='css/compiled/app.css' %}
   <link rel="stylesheet" href="{{ asset_url }}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   {% endstylesheets %}
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
@@ -62,7 +64,7 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/easy-admin">ADMIN</a></li>
+          <li><a href="/easy_admin">ADMIN</a></li>
           <li><a href="/admin/logout">Logout</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->

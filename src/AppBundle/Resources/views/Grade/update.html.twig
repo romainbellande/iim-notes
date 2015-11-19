@@ -4,8 +4,14 @@
     <h1>Grade Update</h1>
 
     {{ form_start(form) }}
-    {{ form_rest(form) }}
-    <input class="btn btn-primary btn-block" type="submit" value="Update">
+        Note
+        {{ form_widget(form.value, { 'attr' : { 'class' : 'form-control margin-top-5' } }) }}
+        Eleve
+        {{ form_widget(form.student, { 'attr' : { 'class' : 'form-control margin-top-5' } }) }}
+        Matière
+        {{ form_widget(form.exam, { 'attr' : { 'class' : 'form-control margin-top-5' } }) }}
+        {{ form_rest(form) }}
+    <input class="btn btn-primary btn-block margin-top-5" type="submit" value="Update">
     {{ form_end(form) }}
 
 {% endblock %}
