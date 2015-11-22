@@ -1,4 +1,7 @@
-vendor
-app/cache
-bin
-app/config
+/vendor
+/app/cache
+/web/bundles
+/app/logs
+parameters.yml
+/bin
+/idea

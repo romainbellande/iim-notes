@@ -60,4 +60,37 @@ class GradeController extends Controller
       return $this->redirectToRoute('grade_list');
 
     }
+
+
+    /**
+     * @Route("/grade/update/{id}", name="grade_update")
+     */
+    public function updateAction($id)
+    {
+        $request = $this->get('request');
+
+        if (is_null($id)) {
+            $postData = $request->get('AppBundle:Grade');
+            $id = $postData['id'];
+        }
+
+        $db = $this->getDoctrine()->getEntityManager();
+        $grade = $db->getRepository('AppBundle:Grade')->find($id);
+        $form = $this->createForm(new GradeType(), $grade);
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // perform some action, such as save the object to the database
+                $db->flush();
+
+                return $this->redirect($this->generateUrl('grade_list'));
+            }
+        }
+
+        return $this->render('AppBundle:Grade:update.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
 }

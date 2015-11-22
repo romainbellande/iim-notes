@@ -64,4 +64,37 @@ class StudentController extends Controller
     }
 
 
+    /**
+     * @Route("/student/update/{id}", name="student_update")
+     */
+    public function updateAction($id)
+    {
+        $request = $this->get('request');
+
+        if (is_null($id)) {
+            $postData = $request->get('AppBundle:Student');
+            $id = $postData['id'];
+        }
+
+        $db = $this->getDoctrine()->getEntityManager();
+        $student = $db->getRepository('AppBundle:Student')->find($id);
+        $form = $this->createForm(new StudentType(), $student);
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // perform some action, such as save the object to the database
+                $db->flush();
+
+                return $this->redirect($this->generateUrl('student_list'));
+            }
+        }
+
+        return $this->render('AppBundle:Student:update.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+
+
 }

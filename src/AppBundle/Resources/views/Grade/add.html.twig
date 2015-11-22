@@ -3,8 +3,8 @@
 {% block title %}Add a grade{% endblock %}
 
 {% block body %}
-<div class="width-300 center-block">
-  <h1 class="text-center text-primary">Add a grade</h1>
+
+  <h1 class="text-center ">Add a grade</h1>
   {{ form_start(form) }}
 
     {{ form_widget(form.student, { 'attr' : { 'class' : 'form-control' } }) }}
@@ -12,8 +12,8 @@
     {{ form_rest(form) }}
     <input type="submit" class="btn btn-primary btn-block margin-top-5" value="Save"/>
 
-    {{ form_end(form) }}
-    <a class="btn btn-primary btn-block margin-top-5" href="{{ path('grade_list') }}">Grade list</a>
+  {{ form_end(form) }}
+
 
 </div>
 {% endblock %}

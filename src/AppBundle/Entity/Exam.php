@@ -137,4 +137,8 @@ class Exam
     {
         return $this->grades;
     }
+
+    public function __toString(){
+        return $this->name;
+    }
 }

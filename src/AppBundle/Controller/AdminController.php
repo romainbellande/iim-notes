@@ -60,4 +60,36 @@ class AdminController extends Controller
       return $this->redirectToRoute('admin_list');
 
     }
+
+    /**
+     * @Route("/update/{id}", name="admin_update")
+     */
+    public function updateAction($id)
+    {
+        $request = $this->get('request');
+
+        if (is_null($id)) {
+            $postData = $request->get('AppBundle:Admin');
+            $id = $postData['id'];
+        }
+
+        $db = $this->getDoctrine()->getEntityManager();
+        $admin = $db->getRepository('AppBundle:Admin')->find($id);
+        $form = $this->createForm(new AdminType(), $admin);
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // perform some action, such as save the object to the database
+                $db->flush();
+
+                return $this->redirect($this->generateUrl('admin_list'));
+            }
+        }
+
+        return $this->render('AppBundle:Admin:update.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
 }

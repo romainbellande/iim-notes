@@ -1,5 +1,8 @@
 security:
     providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, fos_userbundle]
         in_memory:
             memory:
                 users:
@@ -10,24 +13,8 @@ security:
 
     firewalls:
 
-        main:
-            pattern: ^/
-            anonymous: ~
-            form_login:
-                provider: fos_userbundle
-                csrf_provider: form.csrf_provider
-                login_path:     /admin/login
-                check_path:     /admin/login_check
-                default_target_path: /admin/
-            logout:
-                path:           /admin/logout
-                target:         /admin/login
-            anonymous:    true
-            knpu_guard:
-                    authenticators:
-                        - app.api_token_authenticator
-                    # by default, use the start() function from FormLoginAuthenticator
-                    entry_point: app.form_login_authenticator
+
+
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
@@ -35,9 +22,25 @@ security:
         admin:
             pattern:            ^/admin(.*)
             anonymous:    true
+            form_login:
+                provider: chain_provider
+                csrf_provider: form.csrf_provider
+                login_path:     /admin/login
+                check_path:     /admin/login_check
+                default_target_path: /admin/
+            logout:
+                path:           /admin/logout
+                target:         /admin/login
+        api:
+            pattern:  ^/api
+            knpu_guard:
+                authenticators:
+                  - app.api_token_authenticator
+        main:
+            pattern: ^/
+            anonymous: ~
 
-
-
+            anonymous:    true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
