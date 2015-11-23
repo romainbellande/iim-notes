@@ -23,10 +23,6 @@ class Admin extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $apiToken;
-    /**
      * Get id
      *
      * @return integer
@@ -45,7 +41,7 @@ class Admin extends BaseUser
         // the salt value is built-in and you don't have to generate one
         return;
     }
-    
+
     public function eraseCredentials()
     {
         // if you had a plainPassword property, you'd nullify it here
