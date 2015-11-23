@@ -4,7 +4,7 @@ namespace AppBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class StudentControllerTest2 extends WebTestCase
+class StudentControllerDeleteTest extends WebTestCase
 {
 
     public function test_it_lists_students()
