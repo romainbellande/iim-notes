@@ -43,7 +43,8 @@ class StudentControllerTest2 extends WebTestCase
 
         $client->request(
             'DELETE',
-            '/admin/student/delete/10'
+            '/admin/student/delete/11'
+
 
 
         );

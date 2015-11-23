@@ -24,7 +24,7 @@
             {% for admin in admins %}
                 <tr>
                     <th scope="row">{{ loop.index }}</th>
-                    <td>{{ admin.username }} {{ admin.lastName }}</td>
+                    <td>{{ admin.username }}</td>
                     <td>{{ admin.email }}</td>
                     <td>
                         <a class="btn btn-warning btn-xs" href="{{ path('admin_update', {id: admin.id}) }}" role="button">
@@ -40,4 +40,3 @@
         </table>
     </div><!-- /example -->
 {% endblock %}
-
