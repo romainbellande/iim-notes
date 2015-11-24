@@ -15,8 +15,8 @@ class StudentControllerDeleteTest extends WebTestCase
         $crawler = $client->request('GET', '/admin/login');
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
-        $form['_password'] = 'admin';
+        $form['_username'] = 'admin';
+        $form['_password'] = 'adminpass';
 
         $client->submit($form);
         $crawler = $client->request('GET', '/admin/student');
@@ -33,8 +33,8 @@ class StudentControllerDeleteTest extends WebTestCase
         $crawler = $client->request('GET', '/admin/login');
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
-        $form['_password'] = 'admin';
+        $form['_username'] = 'admin';
+        $form['_password'] = 'adminpass';
 
         $client->submit($form);
 
