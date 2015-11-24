@@ -22,14 +22,8 @@ class Admin extends BaseUser
      */
     protected $id;
 
+
     /**
-<<<<<<< HEAD
-     * @ORM\Column(type="string", unique=true, nullable=true)
-     */
-    private $apiToken;
-    /**
-=======
->>>>>>> ac75ac952274d5951e90accb1f0c2b7a5c5e80ef
      * Get id
      *
      * @return integer
